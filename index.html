@@ -12,6 +12,7 @@
     <title>Nurudeen's Web App</title>
 
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -70,9 +71,9 @@
                 asterisk (*) are required.
             </p>
 
-            <!-- This form demonstrates HTML form controls.
-                 JavaScript functionality will be added later. -->
-            <form action="#" method="get">
+            <!--This form demonstrates HTML form controls
+     and JavaScript interaction. -->
+            <form id="contact-form" action="#" method="get">
                 <div class="form-group">
                     <label for="full-name">Full name *</label>
 
@@ -153,6 +154,7 @@
 
                     <small id="message-help">
                         Please enter between 10 and 500 characters.
+    <span id="character-count">0</span>/500 characters used.
                     </small>
                 </div>
 
@@ -177,6 +179,10 @@
                 <button type="reset" class="reset-button">
                     Clear Form
                 </button>
+                <p id="form-status"
+   class="form-status"
+   role="status"
+   aria-live="polite"></p>
             </form>
         </section>
     </main>
