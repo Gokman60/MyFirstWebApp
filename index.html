@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
 
-    <!-- Ensures the page displays correctly on mobile devices -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="Nurudeen's first responsive web application">
+          content="Nurudeen's responsive web technology learning page">
 
     <title>Nurudeen's Web App</title>
 
-    <!-- Links the external CSS file -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -26,14 +25,13 @@
 
     <main class="container">
         <div class="content-grid">
-
             <section class="card">
                 <h2>About This Page</h2>
 
                 <p>
                     I created this page using HTML and Visual Studio Code.
-                    I have now enhanced it using an external CSS stylesheet
-                    and responsive design techniques.
+                    I have enhanced it using external CSS, responsive design
+                    and an accessible HTML form.
                 </p>
             </section>
 
@@ -46,24 +44,140 @@
                     <li>Responsive web design</li>
                 </ul>
             </section>
-
         </div>
 
         <section class="learning-section">
             <h2>What I Have Learned</h2>
 
             <p>
-                I have learned how CSS can control colours, fonts, spacing
-                and page layouts. I have also used a media query to make
-                this page display differently on mobile and desktop devices.
+                I have learned how HTML provides structure, CSS controls
+                presentation and forms allow users to enter information.
             </p>
 
-            <a class="button"
-               href="https://www.w3schools.com/css/"
+            <a class="button-link"
+               href="https://www.w3schools.com/html/html_forms.asp"
                target="_blank"
                rel="noopener noreferrer">
-                Learn More About CSS
+                Learn More About HTML Forms
             </a>
+        </section>
+
+        <section class="form-section" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Contact Me</h2>
+
+            <p id="form-instructions">
+                Please complete the form below. Fields marked with an
+                asterisk (*) are required.
+            </p>
+
+            <!-- This form demonstrates HTML form controls.
+                 JavaScript functionality will be added later. -->
+            <form action="#" method="get">
+                <div class="form-group">
+                    <label for="full-name">Full name *</label>
+
+                    <input
+                        type="text"
+                        id="full-name"
+                        name="fullName"
+                        autocomplete="name"
+                        minlength="2"
+                        maxlength="60"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email address *</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        autocomplete="email"
+                        aria-describedby="email-help"
+                        required>
+
+                    <small id="email-help">
+                        For example, name@example.com
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="topic">Reason for contacting me *</label>
+
+                    <select id="topic" name="topic" required>
+                        <option value="">Please select an option</option>
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="accessibility">Accessibility</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <fieldset class="form-group">
+                    <legend>Preferred contact method *</legend>
+
+                    <div class="choice">
+                        <input
+                            type="radio"
+                            id="contact-email"
+                            name="contactMethod"
+                            value="email"
+                            required>
+
+                        <label for="contact-email">Email</label>
+                    </div>
+
+                    <div class="choice">
+                        <input
+                            type="radio"
+                            id="contact-phone"
+                            name="contactMethod"
+                            value="phone">
+
+                        <label for="contact-phone">Phone</label>
+                    </div>
+                </fieldset>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="6"
+                        minlength="10"
+                        maxlength="500"
+                        aria-describedby="message-help"
+                        required></textarea>
+
+                    <small id="message-help">
+                        Please enter between 10 and 500 characters.
+                    </small>
+                </div>
+
+                <div class="choice consent">
+                    <input
+                        type="checkbox"
+                        id="consent"
+                        name="consent"
+                        value="agreed"
+                        required>
+
+                    <label for="consent">
+                        I agree to the information being used to respond
+                        to my enquiry. *
+                    </label>
+                </div>
+
+                <button type="submit" class="submit-button">
+                    Submit Form
+                </button>
+
+                <button type="reset" class="reset-button">
+                    Clear Form
+                </button>
+            </form>
         </section>
     </main>
 
