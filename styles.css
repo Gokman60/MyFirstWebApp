@@ -1,9 +1,7 @@
-/* Applies predictable sizing to every element */
 * {
     box-sizing: border-box;
 }
 
-/* General page styling */
 body {
     margin: 0;
     background-color: #f1f5f9;
@@ -13,7 +11,6 @@ body {
     line-height: 1.6;
 }
 
-/* Header */
 .site-header {
     background-color: #164e73;
     color: #ffffff;
@@ -27,36 +24,35 @@ body {
 }
 
 .site-header p {
-    margin: 0 auto;
     max-width: 700px;
+    margin: 0 auto;
 }
 
-/* Main page container */
 .container {
     width: 90%;
     max-width: 1100px;
     margin: 40px auto;
 }
 
-/* Two-column desktop layout */
 .content-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
 }
 
-/* Content cards */
 .card,
-.learning-section {
+.learning-section,
+.form-section {
+    padding: 28px;
     background-color: #ffffff;
     border: 2px solid #d6e2ea;
     border-radius: 12px;
-    padding: 28px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .card h2,
-.learning-section h2 {
+.learning-section h2,
+.form-section h2 {
     margin-top: 0;
     color: #176b9c;
 }
@@ -69,14 +65,12 @@ body {
     margin-bottom: 8px;
 }
 
-/* Learning section */
 .learning-section {
     margin-top: 24px;
     text-align: center;
 }
 
-/* Button-style link */
-.button {
+.button-link {
     display: inline-block;
     margin-top: 12px;
     padding: 12px 24px;
@@ -89,25 +83,126 @@ body {
     text-underline-offset: 3px;
 }
 
-.button:hover {
+.button-link:hover {
     background-color: #0c3d59;
     border-color: #0c3d59;
 }
 
-/* Visible keyboard focus */
-.button:focus-visible {
-    color: #000000;
-    background-color: #ffdd00;
-    border-color: #000000;
-    outline: 4px solid #000000;
-    outline-offset: 3px;
+.form-section {
+    max-width: 800px;
+    margin: 24px auto 0;
 }
 
-/* Footer */
+.form-group {
+    margin: 0 0 22px;
+}
+
+label,
+legend {
+    font-weight: bold;
+}
+
+.form-group > label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    color: #222222;
+    background-color: #ffffff;
+    border: 2px solid #536471;
+    border-radius: 5px;
+    font: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+small {
+    display: block;
+    margin-top: 5px;
+    color: #3d4c55;
+}
+
+fieldset {
+    padding: 16px;
+    border: 2px solid #536471;
+    border-radius: 5px;
+}
+
+legend {
+    padding: 0 8px;
+}
+
+.choice {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.choice input {
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+}
+
+.consent {
+    margin-bottom: 24px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus-visible,
+.button-link:focus-visible {
+    outline: 4px solid #ffdd00;
+    outline-offset: 2px;
+    border-color: #000000;
+}
+
+.submit-button,
+.reset-button {
+    min-height: 48px;
+    padding: 12px 22px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-button {
+    background-color: #145a82;
+    color: #ffffff;
+}
+
+.submit-button:hover {
+    background-color: #0c3d59;
+}
+
+.reset-button {
+    margin-left: 10px;
+    background-color: #e5e7eb;
+    color: #222222;
+    border-color: #536471;
+}
+
+.reset-button:hover {
+    background-color: #d1d5db;
+}
+
 .site-footer {
+    padding: 20px;
     background-color: #1f2933;
     color: #ffffff;
-    padding: 20px;
     text-align: center;
 }
 
@@ -115,7 +210,6 @@ body {
     margin: 0;
 }
 
-/* Tablet layout */
 @media screen and (max-width: 800px) {
     .site-header h1 {
         font-size: 2.4rem;
@@ -126,7 +220,6 @@ body {
     }
 }
 
-/* Mobile layout */
 @media screen and (max-width: 600px) {
     body {
         font-size: 16px;
@@ -145,14 +238,14 @@ body {
         margin: 20px auto;
     }
 
-    /* Changes the desktop columns to one mobile column */
     .content-grid {
         grid-template-columns: 1fr;
         gap: 16px;
     }
 
     .card,
-    .learning-section {
+    .learning-section,
+    .form-section {
         padding: 20px;
     }
 
@@ -161,11 +254,15 @@ body {
         text-align: left;
     }
 
-    /* Makes the button easier to select on a touchscreen */
-    .button {
+    .button-link,
+    .submit-button,
+    .reset-button {
         display: block;
         width: 100%;
-        padding: 14px;
         text-align: center;
+    }
+
+    .reset-button {
+        margin: 12px 0 0;
     }
 }
