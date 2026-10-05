@@ -4,6 +4,8 @@ const message = document.getElementById("message");
 const characterCount = document.getElementById("character-count");
 const formStatus = document.getElementById("form-status");
 const resetButton = document.querySelector(".reset-button");
+const toggleLearningButton = document.getElementById("toggle-learning");
+const extraLearning = document.getElementById("extra-learning");
 
 // Update the character counter as the user types
 message.addEventListener("input", function () {
@@ -56,3 +58,24 @@ resetButton.addEventListener("click", function () {
     formStatus.textContent = "";
     formStatus.classList.remove("success");
 });
+
+// Show or hide the additional learning information
+function toggleLearningDetails() {
+    const isHidden = extraLearning.hidden;
+
+    extraLearning.hidden = !isHidden;
+
+    toggleLearningButton.textContent = isHidden
+        ? "Hide learning details"
+        : "Show learning details";
+
+    toggleLearningButton.setAttribute(
+        "aria-expanded",
+        String(isHidden)
+    );
+}
+
+toggleLearningButton.addEventListener(
+    "click",
+    toggleLearningDetails
+);
