@@ -50,18 +50,38 @@
         <section class="learning-section">
             <h2>What I Have Learned</h2>
 
-            <p>
-                I have learned how HTML provides structure, CSS controls
-                presentation and forms allow users to enter information.
-            </p>
+    <p>
+        I have learned how HTML provides structure, CSS controls
+        presentation and JavaScript makes a webpage interactive.
+    </p>
 
-            <a class="button-link"
-               href="https://www.w3schools.com/html/html_forms.asp"
-               target="_blank"
-               rel="noopener noreferrer">
-                Learn More About HTML Forms
-            </a>
-        </section>
+    <button
+        type="button"
+        id="toggle-learning"
+        class="dom-button"
+        aria-expanded="false"
+        aria-controls="extra-learning">
+        Show learning details
+    </button>
+
+    <div id="extra-learning" class="extra-learning" hidden>
+        <h3>HTML DOM methods I have used</h3>
+
+        <ul>
+            <li><code>getElementById()</code> to find HTML elements.</li>
+            <li><code>textContent</code> to update displayed text.</li>
+            <li><code>classList</code> to add and remove CSS classes.</li>
+            <li><code>addEventListener()</code> to respond to user actions.</li>
+        </ul>
+    </div>
+
+    <a class="button-link"
+       href="https://www.w3schools.com/js/js_htmldom.asp"
+       target="_blank"
+       rel="noopener noreferrer">
+        Learn More About the HTML DOM
+    </a>
+</section>
 
         <section class="form-section" aria-labelledby="contact-heading">
             <h2 id="contact-heading">Contact Me</h2>
