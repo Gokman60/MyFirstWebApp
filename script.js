@@ -6,6 +6,9 @@ const formStatus = document.getElementById("form-status");
 const resetButton = document.querySelector(".reset-button");
 const toggleLearningButton = document.getElementById("toggle-learning");
 const extraLearning = document.getElementById("extra-learning");
+const jokeButton = document.getElementById("joke-button");
+const jokeSetup = document.getElementById("joke-setup");
+const jokePunchline = document.getElementById("joke-punchline");
 
 // Update the character counter as the user types
 message.addEventListener("input", function () {
@@ -79,3 +82,46 @@ toggleLearningButton.addEventListener(
     "click",
     toggleLearningDetails
 );
+// Retrieve a programming joke from an external API
+async function getProgrammingJoke() {
+    jokeButton.disabled = true;
+    jokeButton.textContent = "Loading...";
+    jokeSetup.textContent = "Retrieving a programming joke...";
+    jokePunchline.textContent = "";
+
+    try {
+        const response = await fetch(
+            "https://official-joke-api.appspot.com/jokes/programming/random"
+        );
+
+        if (!response.ok) {
+            throw new Error(
+                `The API returned status ${response.status}.`
+            );
+        }
+
+        const data = await response.json();
+
+        if (!Array.isArray(data) || data.length === 0) {
+            throw new Error("The API returned an unexpected response.");
+        }
+
+        const joke = data[0];
+
+        jokeSetup.textContent = joke.setup;
+        jokePunchline.textContent = joke.punchline;
+    } catch (error) {
+        console.error("Unable to retrieve joke:", error);
+
+        jokeSetup.textContent =
+            "Sorry, a programming joke could not be loaded.";
+
+        jokePunchline.textContent =
+            "Please check your connection and try again.";
+    } finally {
+        jokeButton.disabled = false;
+        jokeButton.textContent = "Get Another Programming Joke";
+    }
+}
+
+jokeButton.addEventListener("click", getProgrammingJoke);
