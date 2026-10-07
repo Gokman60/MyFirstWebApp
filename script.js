@@ -125,3 +125,20 @@ async function getProgrammingJoke() {
 }
 
 jokeButton.addEventListener("click", getProgrammingJoke);
+
+$(document).ready(function () {
+    const toggleButton = $("#jquery-toggle");
+    const journeyContent = $("#jquery-content");
+
+    journeyContent.hide();
+
+    toggleButton.on("click", function () {
+        journeyContent.slideToggle(400, function () {
+            const isVisible = journeyContent.is(":visible");
+
+            toggleButton
+                .text(isVisible ? "Hide My Progress" : "Show My Progress")
+                .attr("aria-expanded", isVisible);
+        });
+    });
+});
